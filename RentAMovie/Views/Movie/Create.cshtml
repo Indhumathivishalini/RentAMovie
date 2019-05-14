@@ -1,0 +1,45 @@
+﻿@model RentAMovie.ViewModel.MovieGenreViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.MovieName)
+        @Html.TextBoxFor(c => c.Movie.MovieName, new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.Movie.ReleaseDate)
+        @Html.EditorFor(c => c.Movie.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
+
+
+    </div>
+    <div>
+        @Html.LabelFor(c => c.Movie.AddedDate)
+        @Html.EditorFor(c => c.Movie.AddedDate, new { htmlAttributes = new { @class = "form-control" } })
+
+
+    </div>
+    <div>
+        @Html.LabelFor(c => c.Movie.Stock)
+        @Html.EditorFor(c => c.Movie.Stock, new { htmlAttributes = new { @class = "form-control" } })
+
+
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.Movie.Genre)
+        @Html.DropDownListFor(c => c.Movie.Genre, new SelectList(Model.Genres, "Id", "Name"), "--Select--",
+        new { @class = "form-control" })
+    </div>
+    <div>
+        <input type="submit" name="btnsubmit" value="addnew" />
+    </div>
+
+}

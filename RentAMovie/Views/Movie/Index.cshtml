@@ -1,0 +1,39 @@
+﻿@model List<RentAMovie.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+
+    <h2>Movie Details</h2>
+
+    <table class=" table table-striped table-hover table-bordered">
+        
+
+
+        <tbody>
+
+           @foreach(var mo in Model)
+            {
+
+                <tr>
+
+                    <td>
+
+                        @Html.ActionLink(mo.MovieName,"Detail","Movie",new { id = mo.MovieId },null)
+                   
+                    
+                </tr>
+
+
+
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
